@@ -5,20 +5,15 @@
   "license": "MIT",
   "author": "bijinfeng",
   "main": "index.js",
-  "scripts": {
-    "build": "pnpm tsc",
-    "dev": "pnpm build --watch",
-    "format": "prettier --write .",
-    "prepare": "husky install",
-    "commit": "cz"
-  },
   "files": [
     "dist"
   ],
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-git"
-    }
+  "scripts": {
+    "build": "pnpm tsc",
+    "commit": "cz",
+    "dev": "pnpm build --watch",
+    "format": "prettier --write .",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,md,json}": [
@@ -27,6 +22,11 @@
     "*.ts": [
       "prettier --parser=typescript --write"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
