@@ -1,5 +1,11 @@
 # @pingtou/electron-ipc
 
+## 0.0.3
+
+### Patch Changes
+
+- 952aa26: use father build package
+
 ## 0.0.2
 
 ### Patch Changes
