@@ -1,5 +1,3 @@
-import { BrowserWindow, ipcMain } from 'electron';
-
 type MessageObj<T> = {
   [K in keyof T]: (...args: any) => void;
 };
@@ -36,6 +34,7 @@ export class IPCMain<
     name: T,
     ...payload: Parameters<BackgroundMessageType[T]>
   ): Promise<void> {
+    const { BrowserWindow } = await import('electron');
     // 获取所有打开的窗口
     const windows = BrowserWindow.getAllWindows();
 
@@ -48,7 +47,8 @@ export class IPCMain<
     });
   }
 
-  _bindMessage() {
+  async _bindMessage() {
+    const { ipcMain } = await import('electron');
     ipcMain.handle(this.channel, this._handleReceivingMessage.bind(this));
   }
 

@@ -1,22 +1,40 @@
 {
   "name": "@pingtou/electron-ipc",
   "version": "0.0.2",
-  "description": "",
+  "description": "Typesafe Electron IPC modules",
+  "keywords": [
+    "typescript",
+    "typesafe",
+    "electron",
+    "ipc"
+  ],
+  "bugs": {
+    "url": "https://github.com/bijinfeng/electron-ipc/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bijinfeng/electron-ipc.git"
+  },
   "license": "MIT",
-  "author": "bijinfeng",
-  "main": "index.js",
+  "author": "kebai <2804673379@qq.com>",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "compiled"
   ],
   "scripts": {
-    "build": "pnpm tsc",
+    "build": "father build",
+    "build:deps": "father prebundle",
     "changeset": "changeset",
     "ci:publish": "changeset publish",
     "ci:version": "changeset version",
     "commit": "cz",
-    "dev": "pnpm build --watch",
+    "dev": "father dev",
     "format": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prepublishOnly": "father doctor && npm run build"
   },
   "lint-staged": {
     "*.{js,md,json}": [
