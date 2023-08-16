@@ -1,5 +1,11 @@
 # @pingtou/electron-ipc
 
+## 0.0.4
+
+### Patch Changes
+
+- 4ff9b77: add electron to the peerDependencies
+
 ## 0.0.3
 
 ### Patch Changes
