@@ -20,3 +20,68 @@ $ pnpm add @pingtou/electron-ipc
 ```
 
 ## 用法
+
+1. 定义主进程和渲染进程通信的消息类型
+
+```typescript
+//  从渲染进程传过来的消息类型
+export type RenderMessage = {
+  ping: (text: string) => Promise<string>;
+};
+
+//  从主进程发送到渲染进程的消息类型
+export type MainMessage = {
+  pong: (text: string) => void;
+};
+```
+
+2. 在主进程中创建一个 `IpcMain` 实例
+
+```typescript
+import { IPCMain } from '@pingtou/electron-ipc';
+
+import type { MainMessage, RenderMessage } from './types';
+
+export const ipcMain = new IPCMain<RenderMessage, MainMessage>();
+```
+
+3. 在渲染进程中创建一个 `IpcRenderer` 实例
+
+```typescript
+import { IPCRenderer } from '@pingtou/electron-ipc';
+
+import type { MainMessage, RenderMessage } from './types';
+
+export const ipcRenderer = new IPCRenderer<RenderMessage, MainMessage>();
+```
+
+4. 在 `preload` 中设置通信的桥接
+
+```typescript
+import { ipcRenderer } from './ipc-renderer';
+
+ipcRenderer.bindBridge();
+```
+
+5. 在主进程中监听该消息类型的事件，并发送该类型的消息
+
+```typescript
+ipcMain.on('ping', async (text) => {
+  console.log('main process listener message: ', text);
+  return 'ping';
+});
+
+ipcMain.send('pong', 'pong');
+```
+
+6. 在渲染进程中发送该类型的消息，并接收回复消息
+
+```typescript
+ipcRenderer.send('ping', 'ping').then((text) => {
+  console.log(text);
+});
+
+ipcRenderer.on('pong', (text) => {
+  console.log(text);
+});
+```

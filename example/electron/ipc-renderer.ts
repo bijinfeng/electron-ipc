@@ -1,4 +1,4 @@
-import { IPCRenderer } from '@pingtou/electron-ipc/dist/ipc-render';
+import { IPCRenderer } from '@pingtou/electron-ipc';
 
 import type { MainMessage, RenderMessage } from './types';
 
