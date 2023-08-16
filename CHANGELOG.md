@@ -1,5 +1,11 @@
 # @pingtou/electron-ipc
 
+## 0.0.5
+
+### Patch Changes
+
+- e136717: update README
+
 ## 0.0.4
 
 ### Patch Changes
