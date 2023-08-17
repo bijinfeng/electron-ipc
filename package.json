@@ -1,6 +1,6 @@
 {
   "name": "@pingtou/electron-ipc",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Typesafe Electron IPC modules",
   "keywords": [
     "typescript",
