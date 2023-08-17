@@ -1,5 +1,17 @@
 # @pingtou/electron-ipc
 
+<p>
+  <a href="https://npmjs.com/package/@pingtou/electron-ipc" target="_blank" referrerpolicy="no-referrer">
+    <img src="https://img.shields.io/npm/v/@pingtou/electron-ipc.svg?style=flat-square" alt="npm version" />
+  </a>
+  <a href="https://npmjs.com/package/@pingtou/electron-ipc" target="_blank" referrerpolicy="no-referrer">
+    <img src="https://img.shields.io/npm/dm/@pingtou/electron-ipc.svg?style=flat-square" alt="npm download" />
+  </a>
+  <a href="https://github.com/3lang3/@pingtou/electron-ipc/discussions" target="_blank" referrerpolicy="no-referrer">
+    <img src="https://img.shields.io/npm/l/@pingtou/electron-ipc?style=flat-square" alt="license" />
+  </a>
+</p>
+
 当使用 Electron 框架进行开发时，我们通常需要在主进程和渲染进程之间进行通信。Electron 提供了一种称为 Inter-Process Communication (IPC) 的机制来实现这种通信。
 
 然而，由于 JavaScript 的动态类型特性，IPC 通信可能会出现类型不匹配的问题。为了解决这个问题，可以使用 `@pingtou/electron-ipc`。
