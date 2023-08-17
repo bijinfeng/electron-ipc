@@ -1,5 +1,11 @@
 # @pingtou/electron-ipc
 
+## 0.0.6
+
+### Patch Changes
+
+- f6896f6: fix preload bind bridge error
+
 ## 0.0.5
 
 ### Patch Changes
