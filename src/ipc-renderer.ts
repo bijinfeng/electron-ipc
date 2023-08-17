@@ -1,3 +1,5 @@
+import type { ContextBridge, IpcRenderer } from 'electron';
+
 export const IPC_GLOBAL_NAME = 'ipcChannel';
 
 declare global {
@@ -50,8 +52,7 @@ export class IPCRenderer<
     };
   }
 
-  async bindBridge() {
-    const { contextBridge, ipcRenderer } = await import('electron');
+  async bindBridge(contextBridge: ContextBridge, ipcRenderer: IpcRenderer) {
     contextBridge.exposeInMainWorld(IPC_GLOBAL_NAME, {
       send: (channel: string, data: any) => {
         if (channel !== this.channel) return;

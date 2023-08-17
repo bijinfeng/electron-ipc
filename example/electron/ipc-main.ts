@@ -1,4 +1,4 @@
-import { IPCMain } from '@pingtou/electron-ipc';
+import { IPCMain } from '../../src/index';
 
 import type { MainMessage, RenderMessage } from './types';
 

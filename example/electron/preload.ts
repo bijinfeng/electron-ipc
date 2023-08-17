@@ -1,6 +1,7 @@
+import { ipcRenderer as baseIpcRenderer, contextBridge } from 'electron';
 import { ipcRenderer } from './ipc-renderer';
 
-ipcRenderer.bindBridge();
+ipcRenderer.bindBridge(contextBridge, baseIpcRenderer);
 
 function domReady(
   condition: DocumentReadyState[] = ['complete', 'interactive'],

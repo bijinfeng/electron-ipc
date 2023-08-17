@@ -58,9 +58,11 @@ export const ipcRenderer = new IPCRenderer<RenderMessage, MainMessage>();
 4. 在 `preload` 中设置通信的桥接
 
 ```typescript
+import { contextBridge, ipcRenderer as baseIpcRenderer } from 'electron';
+
 import { ipcRenderer } from './ipc-renderer';
 
-ipcRenderer.bindBridge();
+ipcRenderer.bindBridge(contextBridge, baseIpcRenderer);
 ```
 
 5. 在主进程中监听该消息类型的事件，并发送该类型的消息
