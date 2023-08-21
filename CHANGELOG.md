@@ -1,5 +1,11 @@
 # @pingtou/electron-ipc
 
+## 0.0.7
+
+### Patch Changes
+
+- c82094e: update peerDependencies
+
 ## 0.0.6
 
 ### Patch Changes
